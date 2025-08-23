@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.registerName {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.textLabel {
+    font-size: 20px;
+}
+
+.textInput {
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.registerTitle {
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+
+.registerButton {
+    margin-top: 20px;
+    height: 50px;
+    width: 200px;
+    font-size: 20px;
+}
