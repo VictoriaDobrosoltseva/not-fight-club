@@ -190,11 +190,38 @@ if (storedAvatar) {
     heroImage.src = storedAvatar;
 }
 
+const zones = ['Head', 'Neck', 'Body', 'Belly', 'Legs'];
+
+let enemyAttackZone = '';
+let enemyBlockZones = [];
 
 const enemies = [
-    { id: 'Murlok', image: 'img/enemy1.jpg', health: 100 },
-    { id: 'Naga', image: 'img/enemy2.jpg ', health: 100 },
+    { 
+        id: 'Murlok', 
+        image: 'img/enemy1.jpg', 
+        health: 100,
+        attackZones: ['Head', 'Body'],
+        blockZones: ['Neck'] 
+    },
+    { 
+        id: 'Naga', 
+        image: 'img/enemy2.jpg', 
+        health: 100,
+        attackZones: ['Head'],
+        blockZones: ['Head', 'Neck', 'Legs']
+    },
 ];
+
+function getRandomZones(zonesArray, count) {
+    const zonesCopy = [...zonesArray];
+    const selected = [];
+    for (let i = 0; i < count; i++) {
+        if (zonesCopy.length == 0) break;
+        const index = Math.floor(Math.random() * zonesCopy.length);
+        selected.push(zonesCopy.splice(index, 1)[0]);
+    }
+    return selected;
+}
 
 let currentEnemyIndex=0;
 
@@ -206,10 +233,15 @@ function updateResultsDisplay() {
 function initBattle() {
     heroHealth = 100;
     const enemy = enemies[currentEnemyIndex];
+
+    enemyAttackZone = getRandomZones(enemy.attackZones, 1)[0];
+    enemyBlockZones = getRandomZones(enemy.blockZones, Math.min(3, enemy.blockZones.length));
+
     enemyHealth = enemy.health;
     updateProgress();
+    document.querySelector('.enemyName').textContent = enemy.id;
     enemyImg.src = enemy.image;
-    log(`Start of the battle with ${enemy.id}`);
+    log(`Battle starts at ${enemy.id}.`);
 }
 
 function updateProgress() {
@@ -260,28 +292,47 @@ fightBtn.onclick = () => {
     const attackType = attackRadio.value;
     const defenses = selectedDefenses.map(at => at.value);
 
-    log(`Attack zone: ${attackType}. Defenses zones: ${defenses.join(', ')}`);
+    log(`Attack zone: <span style="color:#6A5ACD;"> ${attackType}.<span style="color:black;"> Defenses zones: <span style="color:#FF8C00;">${defenses.join(', ')}`);
 
     const currentEnemy=enemies[currentEnemyIndex];
 
     let damageToEnemy;
     if (currentEnemy.id == 'Naga'){
-        damageToEnemy = Math.floor(Math.random() * 21) + 10;
+        damageToEnemy = Math.floor(Math.random() * 21) + 5;
     } else {
         damageToEnemy = Math.floor(Math.random() * 21) + 20;
     }
 
     let damageToHero;
     if (currentEnemy.id == 'Naga'){
-        damageToHero= Math.floor(Math.random() * 11) + 15;
+        damageToHero= Math.floor(Math.random() * 11) + 20;
     } else {
         damageToHero= Math.floor(Math.random() * 11) + 5;
     }
 
-    if (defenses.includes(attackType)){
-        damageToEnemy -= 5;
-        if(damageToEnemy < 0) damageToEnemy = 0;
-    }
+    let playerHitsEnemy=false;
+
+    if (attackType === enemyAttackZone) {
+        log(`Your damage <span style="color:#6A5ACD;"> ${attackType} <span style="color: black;"> was blocked by the enemy!`);
+        damageToEnemy = 0; 
+        playerHitsEnemy = false; 
+      } else if (enemyBlockZones.includes(attackType)) {
+        log(`You blocked an attack in <span style="color:#6A5ACD;"> ${attackType}!`);
+        damageToHero = 0; 
+      } else {
+        log(`Your damage <span style="color:#6A5ACD;">${attackType} <span style="color: black;">was a success!`);
+        playerHitsEnemy = true; 
+      }
+
+      if (enemyAttackZone === attackType) {
+          log(`Attack of the enemy in <span style="color:#6A5ACD;">${enemyAttackZone} <span style="color: black;">was blocked by your protection!`, 'orange');
+          damageToHero = 0; 
+       } else if (defenses.includes(enemyAttackZone)) {
+           log(`You blocked an enemy attack in <span style="color:#6A5ACD;">${enemyAttackZone}!`);
+           damageToHero = 0; 
+       } else {
+           log(`Attack of the enemy in <span style="color:#6A5ACD;">${enemyAttackZone} <span style="color: black;">got it!`);
+       }
 
     enemyHealth -= damageToEnemy;
     if (enemyHealth < 0) enemyHealth = 0;
