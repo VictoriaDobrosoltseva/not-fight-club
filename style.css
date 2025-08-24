@@ -18,6 +18,10 @@ body {
     height: 100%;
     width: 100%;
     justify-content: center;
+    background: url(img/logback.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .registerName {
@@ -53,6 +57,10 @@ body {
     display: none;
     flex-direction: column;
     height: 100%;
+    background: url(img/homeback.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .header {
@@ -192,7 +200,12 @@ progress::-moz-progress-bar {
 
 #character {
     display: none;
+    height: 100%;
     flex-direction: column;
+    background: url(img/setback.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .characterInformation {
@@ -258,5 +271,44 @@ progress::-moz-progress-bar {
 
 #settings {
     display: none;
+    height: 100%;
     flex-direction: column;
+    background: url(img/settiback.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.characterInformation__Data--name {
+    color: #fff;
+}
+
+.userNameDisplay {
+    color: #fff;
+}
+
+.characterInformation__Data--Results {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.characterInformation__Data--Results-Wins {
+    color: #006400;
+}
+
+.Wins {
+    color: #006400;
+}
+
+.characterInformation__Data--Results-Loses {
+    color: #8B0000;
+}
+
+.Looses {
+    color: #8B0000;
+}
+
+.ChangeName {
+    margin-left: 20px;
 }

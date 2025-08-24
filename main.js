@@ -92,6 +92,13 @@ CharacterPageFight.addEventListener('click', function() {
     character.style.display = 'flex';
 });
 
+const fightSet = document.querySelector('.fightSet');
+
+fightSet.addEventListener('click', function() {
+    fight.style.display = 'none';
+    settings.style.display = 'flex';
+});
+
 function updateAllNameDisplays(name) {
     if (characterNamespan) {
         characterNamespan.textContent = name;
@@ -143,6 +150,21 @@ CharacterBtnChr.addEventListener('click', function() {
     character.style.display = 'flex';
 })
 
+const charSet = document.querySelector('.charSet');
+
+charSet.addEventListener('click', function() {
+    settings.style.display = 'flex';
+    character.style.display = 'none';
+})
+
+
+const SetHome = document.querySelector('.SetHome');
+
+SetHome.addEventListener('click', function() {
+    settings.style.display = 'none';
+    home.style.display = 'flex';
+})
+
 const attackRadios = document.querySelectorAll('input[name=attack]');
 const DefenseRadios = document.querySelectorAll('.radiodefense');
 const fightBtn = document.querySelector('.buttonAttack');
@@ -150,6 +172,14 @@ const enemyImg = document.querySelector('.enemy');
 const heroProgress = document.querySelector('.heroHealth');
 const enemyProgress = document.querySelector('.enemyHealth');
 const battleLogDiv = document.getElementById('battleLog');
+
+const winsSpan = document.querySelector('.characterInformation__Data--Results-Wins');
+const losesSpan = document.querySelector('.characterInformation__Data--Results-Loses');
+
+
+let winsCount = 0;
+let losesCount = 0;
+
 
 let heroHealth = 100;
 let enemyHealth = 100;
@@ -160,6 +190,11 @@ const enemies = [
 ];
 
 let currentEnemyIndex=0;
+
+function updateResultsDisplay() {
+    if (winsSpan) winsSpan.textContent = winsCount;
+    if (losesSpan) losesSpan.textContent = losesCount;
+}
 
 function initBattle() {
     heroHealth = 100;
@@ -199,6 +234,8 @@ DefenseRadios.forEach(radio => {
         }
     });
 });
+
+updateResultsDisplay();
 
 fightBtn.onclick = () => {
     const attackRadio = Array.from(attackRadios).find(att => att.checked);
@@ -252,10 +289,14 @@ fightBtn.onclick = () => {
 
    if (enemyHealth == 0 || heroHealth == 0){
        if (enemyHealth == 0){
-           log(`You win!`, 'green');
-           changeEnemy();
+            winsCount++;
+            updateResultsDisplay();
+            log(`You win!`, 'green');
+            changeEnemy();
        } else {
-           log(`You loose!`, '#8B0000');
+            losesCount++;
+            updateResultsDisplay();
+            log(`You loose!`, '#8B0000');
        }
        initBattle();
 
