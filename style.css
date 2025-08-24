@@ -1,5 +1,22 @@
 * {
     box-sizing: border-box;
+    font-family: 'Warcraft', sans-serif;
+    font-size: 22px;
+    cursor: url(img/cursor.png), auto;
+}
+
+
+button {
+    color: #fff;
+    background-color: #6d1c1c;
+    border-radius: 10px;
+    border: 3px solid #1b2026;
+    width: 150px;
+}
+
+@font-face {
+    font-family: 'Warcraft';
+    src: url('fonts/Warcraft.ttf');
 }
 
 body {
@@ -33,6 +50,7 @@ body {
 
 .textLabel {
     font-size: 20px;
+    color: #fff;
 }
 
 .textInput {
@@ -44,6 +62,7 @@ body {
 .registerTitle {
     font-size: 35px;
     margin-bottom: 30px;
+    color: #fff;
 }
 
 .registerButton {
@@ -51,6 +70,10 @@ body {
     height: 50px;
     width: 200px;
     font-size: 20px;
+    color: #fff;
+    background-color: #6d1c1c;
+    border-radius: 10px;
+    border: 3px solid #1b2026;
 }
 
 #home {
@@ -88,6 +111,10 @@ body {
 .buttonFight {
     height: 30px;
     width: 100px;
+    color: #fff;
+    background-color: #6d1c1c;
+    border-radius: 10px;
+    border: 3px solid #1b2026;
 }
 
 #fight {
@@ -99,6 +126,7 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+
 
 .fightPanel {
     display: flex;
@@ -172,11 +200,6 @@ progress::-moz-progress-bar {
 .radioButton {
     display: flex;
     gap: 10px;
-    cursor: pointer;
-}
-
-.radio {
-    cursor: pointer;
 }
 
 .defence {
