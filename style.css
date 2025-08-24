@@ -75,3 +75,106 @@
     height: 30px;
     width: 100px;
 }
+
+#fight {
+    display: none;
+    flex-direction: column;
+}
+
+.fightPanel {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heroContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero {
+    width: 300px;
+    height: 430px;
+}
+
+.enemyHealth {
+    width: 300px;
+    height: 20px;
+    appearance: none;
+}
+
+.heroHealth {
+    width: 300px;
+    height: 20px;
+    appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background: #eee;
+}
+
+progress::-webkit-progress-value {
+    background: #960014;
+}
+
+progress::-moz-progress-bar {
+    background: #000000;
+}
+
+.healthBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttleContainer {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.attackButtons {
+    display: flex;
+    gap: 20px;
+}
+
+.attack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.radioButton {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.radio {
+    cursor: pointer;
+}
+
+.defence {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.enemy {
+    width: 300px;
+    height: 430px;
+}
+
+.enemyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}

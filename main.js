@@ -17,8 +17,15 @@ buttonLogin.addEventListener('click', function() {
     };
   });
 
-buttonFight.addEventListener('click', function() {
+  buttonFight.addEventListener('click', function() {
     home.style.display = 'none';
     fight.style.display = 'flex';
     heroName.textContent = characterName;
+});
+
+const homeButton = document.querySelector('.homeButton');
+
+homeButton.addEventListener('click', function() {
+    fight.style.display = 'none';
+    home.style.display = 'flex';
 });
