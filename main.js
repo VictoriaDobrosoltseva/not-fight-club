@@ -12,8 +12,6 @@ const characterNamespan = document.querySelector('.characterInformation__Data--n
 const heroName = document.querySelector('.heroName');
 characterNamespan.textContent = characterName;
 
-
-
 buttonLogin.addEventListener('click', function() {
     const inputValue = name.value.trim();
     if (inputValue) 
@@ -177,12 +175,21 @@ const winsSpan = document.querySelector('.characterInformation__Data--Results-Wi
 const losesSpan = document.querySelector('.characterInformation__Data--Results-Loses');
 
 
-let winsCount = 0;
-let losesCount = 0;
+let winsCount = parseInt(localStorage.getItem('wins')) || 0;
+let losesCount = parseInt(localStorage.getItem('loses')) || 0;
+
+updateResultsDisplay();
 
 
 let heroHealth = 100;
 let enemyHealth = 100;
+
+const storedAvatar = localStorage.getItem('selectedAvatar');
+if (storedAvatar) {
+    mainImage.src = storedAvatar;
+    heroImage.src = storedAvatar;
+}
+
 
 const enemies = [
     { id: 'Murlok', image: 'img/enemy1.jpg', health: 100 },
@@ -290,11 +297,13 @@ fightBtn.onclick = () => {
    if (enemyHealth == 0 || heroHealth == 0){
        if (enemyHealth == 0){
             winsCount++;
+            localStorage.setItem('wins', winsCount);
             updateResultsDisplay();
             log(`You win!`, 'green');
             changeEnemy();
        } else {
             losesCount++;
+            localStorage.setItem('loses', losesCount);
             updateResultsDisplay();
             log(`You loose!`, '#8B0000');
        }

@@ -228,29 +228,36 @@ progress::-moz-progress-bar {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 .closePopup{ 
     margin-bottom: 10px;
-    margin-left: 810px;
     cursor: pointer;
+    width: 100px;
 }
 
 .popup-content {
     background-color: #fff;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .image-options {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
 .selectable {
     width: 200px;
-    height: auto;
+    height: 400px;
     cursor: pointer;
 }
 
