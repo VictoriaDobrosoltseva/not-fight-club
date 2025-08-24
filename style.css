@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     height: 100vh;
 }
@@ -55,6 +60,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin: 10px;
 }
 
 .buttonContainer {
@@ -79,6 +85,11 @@
 #fight {
     display: none;
     flex-direction: column;
+    height: 100%;
+    background: url(img/Bolotina.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .fightPanel {
@@ -231,8 +242,18 @@ progress::-moz-progress-bar {
 }
 
 .log {
-    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-x: auto;
+    width: 98%;
     height: 300px;
+    margin: 15px auto;
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+#battleLog {
+    margin: 10px;
 }
 
 #settings {
