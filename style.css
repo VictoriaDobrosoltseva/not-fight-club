@@ -178,3 +178,64 @@ progress::-moz-progress-bar {
     align-items: center;
     gap: 20px;
 }
+
+#character {
+    display: none;
+    flex-direction: column;
+}
+
+.characterInformation {
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+}
+
+.characterInformation__Avatar--image {
+    width: 300px;
+    height: 430px;
+    cursor: pointer;
+}
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.closePopup{ 
+    margin-bottom: 10px;
+    margin-left: 810px;
+    cursor: pointer;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.image-options {
+    display: flex;
+    gap: 20px;
+}
+
+.selectable {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
+
+.log {
+    width: 100%;
+    height: 300px;
+}
+
+#settings {
+    display: none;
+    flex-direction: column;
+}

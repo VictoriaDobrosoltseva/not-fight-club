@@ -16,7 +16,7 @@
             </div>
             <button class="registerButton">Create character</button>
         </div>
-
+        
         <div id="home">
             <header class="header">
                 <button>Home</button>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div id="fight">
             <header class="header">
                 <button class="homeButton">Home</button>
@@ -80,23 +80,23 @@
                         <div class="defence">
                             <p>Defence Zones</p>
                             <div class="radioButton">
-                                <input class="radio" type="checkbox" name="defence" value="Head">
+                                <input class="radiodefense" type="radio" name="defense1" value="Head">
                                 <label for="">Head</label>
                             </div>
                             <div class="radioButton">
-                                <input class="radio" type="checkbox" name="defence" value="Neck">
+                                <input class="radiodefense" type="radio" name="defense2" value="Neck">
                                 <label for="">Neck</label>
                             </div>
                             <div class="radioButton">
-                                <input class="radio" type="checkbox" name="defence" value="Body">
+                                <input class="radiodefense" type="radio" name="defense3" value="Body">
                                 <label for="">Body</label>
                             </div>
                             <div class="radioButton">
-                                <input class="radio" type="checkbox" name="defence" value="Belly">
+                                <input class="radiodefense" type="radio" name="defense4" value="Belly">
                                 <label for="">Belly</label>
                             </div>
                             <div class="radioButton">
-                                <input class="radio" type="checkbox" name="defence" value="Legs">
+                                <input class="radiodefense" type="radio" name="defense5" value="Legs">
                                 <label for="">Legs</label>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                 </div>
         
                 <div class="enemyContainer">
-                    <p class="enemyName">Enemy</p>
+                    <span class="enemyName">Enemy</span>
                     <img src="img/enemy1.jpg" alt="enemy" class="enemy">
                     <div class="healthBar">
                         <progress class="enemyHealth" value="100" max="100"></progress>
@@ -116,7 +116,59 @@
         
         
             </div>
-            <p id='battleLog'></p>
+            <div class="log">
+                <p id='battleLog'></p>
+            </div>
+        </div>
+        
+        <div id="character">
+            <header class="header">
+                <button class="characterHome">Home</button>
+                <button>Character</button>
+                <button>Settings</button>
+            </header>
+        
+            <div class="characterInformation">
+                <div class="characterInformation__Avatar">
+                    <img src="img/character1.jpg" alt="character" class="characterInformation__Avatar--image">
+                </div>
+                <div class="characterInformation__Data">
+                    <div class="characterInformation__Data--name"></div>
+                    <div class="characterInformation__Data--Results">
+                        <span class="characterInformation__Data--Results-Wins"></span>
+                        <span class="characterInformation__Data--Results-Loses"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="settings">
+            <header class="header">
+                <button>Home</button>
+                <button class="CharacterBtnChr">Character</button>
+                <button>Settings</button>
+            </header>
+        
+            <div class="SettingsContainer">
+                <div class="ChangeNameContainer">
+                    <input type="text" class="ChangeName" placeholder="Change Name" value>
+                    <button class="saveNameBtn">Сохранить</button>
+                    <span class="userNameDisplay"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <div id="popup">
+            <div class="popup-content">
+                <button class="closePopup">Close</button>
+                <div class="image-options">
+                    <img src="img/character1.jpg" alt="Character1" class="selectable">
+                    <img src="img/character2.jpg" alt="Character2" class="selectable">
+                    <img src="img/character3.jpg" alt="Character2" class="selectable">
+                    <img src="img/character4.jpg" alt="Character2" class="selectable">
+                </div>
+            </div>
         </div>
 
         <script src="main.js"></script>
